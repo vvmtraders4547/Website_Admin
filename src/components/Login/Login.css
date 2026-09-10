@@ -1,0 +1,13 @@
+/* admin/src/components/Login/Login.css */
+.login-page { min-height: 100vh; background: var(--bg); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.login-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,.06) 0%, transparent 60%); pointer-events: none; }
+.login-card { background: var(--bg3); border: 1px solid var(--border2); border-radius: 12px; padding: 48px; width: 100%; max-width: 400px; position: relative; z-index: 1; }
+.login-logo { text-align: center; margin-bottom: 36px; }
+.login-logo-mark { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--gold); }
+.login-logo h1 { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--white); font-weight: 600; }
+.login-logo p { font-size: 11px; color: var(--text-dim); letter-spacing: 3px; text-transform: uppercase; margin-top: 4px; }
+.login-alert { background: var(--red-bg); border: 1px solid rgba(231,76,60,.3); color: var(--red); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 13px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.login-btn { width: 100%; padding: 14px; background: var(--gold); color: #1E0E00; border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: background .2s; margin-top: 8px; font-family: inherit; }
+.login-btn:hover { background: var(--gold-light); }
+.login-btn:disabled { opacity: .6; cursor: not-allowed; }
+.login-hint { text-align: center; font-size: 11px; color: var(--text-dim); margin-top: 16px; }

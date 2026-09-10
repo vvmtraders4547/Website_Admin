@@ -1,0 +1,51 @@
+/* admin/src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim: rgba(201,168,76,0.15);
+  --bg: #0F0F1A;
+  --bg2: #16162A;
+  --bg3: #1E1E35;
+  --bg4: #252540;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.1);
+  --text: rgba(255,255,255,0.85);
+  --text-mid: rgba(255,255,255,0.55);
+  --text-dim: rgba(255,255,255,0.3);
+  --white: #ffffff;
+  --red: #E74C3C;
+  --red-bg: rgba(231,76,60,0.15);
+  --orange: #E67E22;
+  --orange-bg: rgba(230,126,34,0.15);
+  --green: #27AE60;
+  --green-bg: rgba(39,174,96,0.15);
+  --blue: #3498DB;
+  --blue-bg: rgba(52,152,219,0.15);
+  --purple: #9B59B6;
+  --radius: 8px;
+  --radius-sm: 4px;
+  --sidebar-w: 240px;
+  --header-h: 64px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+button, input, select, textarea { font-family: inherit; }
+a { text-decoration: none; color: inherit; }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideRight { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes modalIn { from { opacity: 0; transform: scale(.96) translateY(16px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes toastIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
