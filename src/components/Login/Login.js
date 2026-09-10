@@ -10,6 +10,8 @@ function Login() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username || !password) { setError('Please enter username and password.'); return; }
@@ -55,8 +57,18 @@ function Login() {
           </div>
           <div className="form-group">
             <label className="form-label">Password</label>
-            <input className="form-input" type="password" placeholder="••••••••" value={password}
-              onChange={e => setPassword(e.target.value)} />
+            <div style={{ position: 'relative' }}>
+              <input className="form-input" type={showPassword ? "text" : "password"} placeholder="••••••••" value={password}
+                onChange={e => setPassword(e.target.value)} style={{ paddingRight: 40 }} />
+              <button 
+                type="button" 
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-mid)', cursor: 'pointer', fontSize: 16 }}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? '👁️‍🗨️' : '👁️'}
+              </button>
+            </div>
           </div>
           <button type="submit" className="login-btn" disabled={loading}>
             {loading ? 'Signing in…' : 'Sign In →'}

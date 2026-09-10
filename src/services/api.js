@@ -6,7 +6,7 @@ const getBaseURL = () => {
     return 'http://localhost:5000/api';
   }
   if (process.env.REACT_APP_API_URL) return process.env.REACT_APP_API_URL;
-  return 'https://vvm-backend-46u9.onrender.com/api';
+  return 'https://website-backend-21ku.onrender.com/api';
 };
 
 const API = axios.create({

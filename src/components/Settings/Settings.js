@@ -11,6 +11,27 @@ const Section = ({ title, children, action }) => (
   </div>
 );
 
+const PasswordField = ({ label, placeholder, val, onChange }) => {
+  const [show, setShow] = useState(false);
+  return (
+    <div className="form-group">
+      <label className="form-label">{label}</label>
+      <div style={{ position: 'relative' }}>
+        <input type={show ? "text" : "password"} className="form-input" placeholder={placeholder} value={val}
+          onChange={e => onChange(e.target.value)} style={{ paddingRight: 40 }} />
+        <button 
+          type="button" 
+          onClick={() => setShow(!show)}
+          style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-mid)', cursor: 'pointer', fontSize: 16 }}
+          aria-label={show ? "Hide password" : "Show password"}
+        >
+          {show ? '👁️‍🗨️' : '👁️'}
+        </button>
+      </div>
+    </div>
+  );
+};
+
 function Settings() {
   const { admin } = useAuth();
 
@@ -216,17 +237,9 @@ function Settings() {
 
           {/* Change password */}
           <Section title="Change Password">
-            {[
-              ['Current Password', 'current', 'Current password'],
-              ['New Password', 'newPass', 'Min. 6 characters'],
-              ['Confirm New Password', 'confirm', 'Repeat new password'],
-            ].map(([l, k, ph]) => (
-              <div key={k} className="form-group">
-                <label className="form-label">{l}</label>
-                <input type="password" className="form-input" placeholder={ph} value={creds[k]}
-                  onChange={e => setCreds(c => ({ ...c, [k]: e.target.value }))} />
-              </div>
-            ))}
+            <PasswordField label="Current Password" placeholder="Current password" val={creds.current} onChange={v => setCreds(c => ({ ...c, current: v }))} />
+            <PasswordField label="New Password" placeholder="Min. 6 characters" val={creds.newPass} onChange={v => setCreds(c => ({ ...c, newPass: v }))} />
+            <PasswordField label="Confirm New Password" placeholder="Repeat new password" val={creds.confirm} onChange={v => setCreds(c => ({ ...c, confirm: v }))} />
             <button className="btn btn-gold" onClick={saveCreds}>
               {savedCreds ? '✅ Updated!' : 'Update Password'}
             </button>
